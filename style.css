@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #8ac6ff;
+}
+
+/* Pantalla inicial */
+.container {
+  background: #222;
+  color: #eee;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.heart { color: red; }
+
+input {
+  width: 80%;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+button {
+  background: #fdd97b;
+  color: #222;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+button:hover { background: #ffe9a8; }
+
+.hidden { display: none; }
+.sky {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url('City.jpeg') bottom no-repeat;
+  background-size: contain; /* mantiene proporción y no estira demasiado */
+  background-position: bottom center; /* centra la imagen abajo */
+  overflow: hidden;
+  background-color: #87ceeb;
+}
+
+
+
+/* --- AVIÓN --- */
+.plane {
+  position: absolute;
+  width: 120px;                    /* más grande para que se vea */
+  top: 30%;                        /* un poco más arriba para que no se corte */
+  left: -150px;                     /* inicia fuera de pantalla */
+  animation: fly 12s linear forwards;
+  z-index: 10;                      /* debe estar encima de la ciudad */
+}
+
+@keyframes fly {
+  from { left: -150px; }
+  to { left: 110%; }
+}
+
+
+/* --- TEXTO DE HUMO --- */
+.smoke {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 0 0 15px rgba(255,255,255,0.9);
+  display: flex;
+  gap: 6px;
+}
+
+.smoke span {
+  opacity: 0;
+  animation: appear 0.4s ease-in forwards;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(-20px); filter: blur(6px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
