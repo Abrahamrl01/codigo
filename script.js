@@ -14,7 +14,7 @@ showBtn.addEventListener("click", () => {
   sky.classList.remove("hidden");
 
   // Texto de humo letra por letra
-  const message = `Vamos por un elote    ${name.toUpperCase()}`;
+  const message = `HAPPY   BIRDAY     ${name.toUpperCase()}`;
   smokeText.innerHTML = "";
 
   [...message].forEach((char, index) => {
@@ -24,4 +24,5 @@ showBtn.addEventListener("click", () => {
     smokeText.appendChild(span);
   });
 });
+
 
